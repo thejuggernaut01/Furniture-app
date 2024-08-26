@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants";
 import { useNavigation } from "@react-navigation/native";
 
-const ProductCardView = () => {
+const ProductCardView = ({ item }) => {
   const navigation = useNavigation();
 
   return (
@@ -14,7 +14,7 @@ const ProductCardView = () => {
         <View style={styles.imageContainer}>
           <Image
             source={{
-              uri: "https://img.freepik.com/free-photo/mid-century-modern-living-room-interior-design-with-monstera-tree_53876-129803.jpg?semt=sph",
+              uri: item.imageUrl,
             }}
             style={styles.image}
           />
@@ -22,13 +22,13 @@ const ProductCardView = () => {
 
         <View style={styles.details}>
           <Text style={styles.title} numberOfLines={1}>
-            Product
+            {item.title}
           </Text>
           <Text style={styles.supplier} numberOfLines={1}>
-            Product
+            {item.supplier}
           </Text>
           <Text style={styles.price} numberOfLines={1}>
-            $2353
+            {item.price}
           </Text>
         </View>
         <TouchableOpacity style={styles.addBtn}>
